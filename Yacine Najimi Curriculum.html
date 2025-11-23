@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #000;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #001f4d;
+        }
+        nav a {
+            color: white;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        nav a:hover {
+            background-color: #00509e;
+        }
+        .content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .profile-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #003366;
+            flex-shrink: 0;
+        }
+        .profile-text {
+            flex: 1;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-container {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: white;
+            width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-container img {
+            width: 200px;
+            cursor: pointer;
+            border-radius: 5px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .image-description {
+            padding: 5px;
+            width: 200px;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        footer {
+            background-color: #001f4d;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .section-title {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-photo {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>YACINE NAJIMI</h1>
+        <p>International Relations Student</p>
+    </header>
+
+    <nav>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('curriculum')">Curriculum</a>
+        <a onclick="showSection('academic-activities')">Academic Activities</a>
+        <a onclick="showSection('extracurricular-activities')">Extracurricular Activities</a>
+        <a onclick="showSection('publications')">Publications</a>
+    </nav>
+
+    <div class="content">
+
+       <!-- Home Section -->
+<section id="home" class="section active">
+    <h2 class="section-title">Welcome</h2>
+    <div class="profile-section">
+        <img id="profile-photo" src="https://drive.google.com/thumbnail?id=1XO5tv9eF8rxkeqw-1u0hkXnEhtuGHlGm&sz=w1000" alt="Yacine Najimi" class="profile-photo">
+        <div class="profile-text">
+            <h3>About Me</h3>
+            <p>I am a student aspiring to seize every opportunity that aligns with my constant-knowledge-seeking ambition. I have a strong sense of initiative and I love teamwork!</p>
+            <p>Currently pursuing a Bachelor of Science in International Relations with a Minor in Business at University Mohammed VI Polytechnic (UM6P), I'm passionate about geopolitics, international cooperation, and economic development.</p>
+            <p>My academic journey has provided me with a solid foundation in Geopolitics of Africa, Foreign Policy Analysis, International Organizations, and Game Theory, complemented by business courses in Managerial Economics, Marketing, and Business Law.</p>
+            <p>I'm proficient in Arabic, English, and French, with beginner-level German communication skills. Beyond academics, I enjoy basketball, jogging, and reading.</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Curriculum Section -->
+        <section id="curriculum" class="section">
+            <h2 class="section-title">Curriculum</h2>
+            <p>Below you can view my complete CV:</p>
+            <iframe src="https://drive.google.com/file/d/14vI6-YfZBgW06Bh-Ef37UTr9NcU0_8iF/preview" class="pdf-viewer"></iframe>
+        </section>
+
+        <!-- Academic Activities Section -->
+        <section id="academic-activities" class="section">
+            <h2 class="section-title">Academic Activities</h2>
+            <p>Click an image to view it in Google Drive.</p>
+            <div id="academic-gallery" class="gallery-container"></div>
+        </section>
+
+        <!-- Extracurricular Activities Section -->
+        <section id="extracurricular-activities" class="section">
+            <h2 class="section-title">Extracurricular Activities</h2>
+            <p>Click an image to view it in Google Drive.</p>
+            <div id="extracurricular-gallery" class="gallery-container"></div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <h2 class="section-title">Publications</h2>
+            <p>A list of my published works will be displayed here.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Yacine Najimi - Curriculum Website</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Google Drive folder IDs
+        const academicFolderId = "1LV432ycFu5lsUQKeBptv00Myl3Q9VfcT"; // Academic activities folder ID
+        const extracurricularFolderId = "1lynjFgFseEh99g3_2NytL4ZUpH3et43_"; // Extracurricular activities folder ID
+        const apiKey = "AIzaSyCTnijQS-cPx4pTFruKBk8kgicjzOs5tNo"; // Your API key
+
+        // Load academic activities images
+        async function loadAcademicImages() {
+            try {
+                const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${academicFolderId}'+in+parents&key=${apiKey}&fields=files(id,name,thumbnailLink)`);
+                const data = await response.json();
+                const gallery = document.getElementById("academic-gallery");
+
+                if (data.files && data.files.length > 0) {
+                    data.files.forEach(file => {
+                        const imageContainer = document.createElement("div");
+                        imageContainer.classList.add("image-container");
+
+                        const img = document.createElement("img");
+                        img.src = file.thumbnailLink;
+                        img.alt = file.name;
+                        img.onclick = () => window.open(`https://drive.google.com/file/d/${file.id}/view`, "_blank");
+
+                        const description = document.createElement("p");
+                        description.textContent = file.name;
+                        description.classList.add("image-description");
+
+                        imageContainer.appendChild(img);
+                        imageContainer.appendChild(description);
+                        gallery.appendChild(imageContainer);
+                    });
+                } else {
+                    gallery.innerHTML = "<p>No academic activities found.</p>";
+                }
+            } catch (error) {
+                console.error("Error loading academic images:", error);
+                document.getElementById("academic-gallery").innerHTML = "<p>Unable to load academic activities at this time.</p>";
+            }
+        }
+
+        // Load extracurricular activities images
+        async function loadExtracurricularImages() {
+            try {
+                const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${extracurricularFolderId}'+in+parents&key=${apiKey}&fields=files(id,name,thumbnailLink)`);
+                const data = await response.json();
+                const gallery = document.getElementById("extracurricular-gallery");
+
+                if (data.files && data.files.length > 0) {
+                    data.files.forEach(file => {
+                        const imageContainer = document.createElement("div");
+                        imageContainer.classList.add("image-container");
+
+                        const img = document.createElement("img");
+                        img.src = file.thumbnailLink;
+                        img.alt = file.name;
+                        img.onclick = () => window.open(`https://drive.google.com/file/d/${file.id}/view`, "_blank");
+
+                        const description = document.createElement("p");
+                        description.textContent = file.name;
+                        description.classList.add("image-description");
+
+                        imageContainer.appendChild(img);
+                        imageContainer.appendChild(description);
+                        gallery.appendChild(imageContainer);
+                    });
+                } else {
+                    gallery.innerHTML = "<p>No extracurricular activities found.</p>";
+                }
+            } catch (error) {
+                console.error("Error loading extracurricular images:", error);
+                document.getElementById("extracurricular-gallery").innerHTML = "<p>Unable to load extracurricular activities at this time.</p>";
+            }
+        }
+
+        // Load all content when page loads
+        window.onload = function() {
+            loadAcademicImages();
+            loadExtracurricularImages();
+        };
+    </script>
+
+</body>
+</html>
